@@ -20,17 +20,6 @@ struct Network: NetworkProtocol {
         
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             
-            let decoder = JSONDecoder()
-            
-            if let data = data {
-                do {
-                    let tasks = try decoder.decode(Repository.self, from: data)
-                    print(tasks.name)
-                }
-                catch {
-                    print(error)
-                }
-            }
             
             completion(data)
         }
