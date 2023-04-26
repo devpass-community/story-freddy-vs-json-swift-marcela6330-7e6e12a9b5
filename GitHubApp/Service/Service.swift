@@ -7,9 +7,12 @@ struct Service {
     init(network: NetworkProtocol = Network()) {
         self.network = network
     }
-
+    
     func fetchList(of user: String, completion: @escaping ([Repository]?) -> Void) {
         
         // TODO
+        guard let _ = URL(string: "https://api.github.com/users/\(user)/repos") else {
+            return
+        }
     }
 }
